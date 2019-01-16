@@ -17,7 +17,7 @@ public class rozmiary {
     public int width;
     
     public rozmiary(){
-        height = 600;
+        height = 610;
         width = 900;
     }
 

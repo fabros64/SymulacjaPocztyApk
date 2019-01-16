@@ -243,7 +243,7 @@ public class NowaWiadomosc extends javax.swing.JFrame {
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
             Date date = new Date();
             String przerwa = "                              ";
-            listaWyslanych.dodajWyslane(new Wyslane("Mariusz@gmail.com"+przerwa,taTytul.getText()+przerwa,dateFormat.format(date)+przerwa,taTresc.getText()));
+            listaWyslanych.dodajWyslane(new Wyslane(taDoKogo.getText()+przerwa,taTytul.getText()+przerwa,dateFormat.format(date)+przerwa,taTresc.getText()));
             if(!isOdebrane.isSelected())
             {
                 DefaultListModel<String> lm = new DefaultListModel<>();

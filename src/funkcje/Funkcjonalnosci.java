@@ -11,21 +11,17 @@ package funkcje;
  */
 public class Funkcjonalnosci {
     
-    final int dlugoscWyswietlana = 156;
+    final int dlugoscWyswietlana = 48;
     
-    public String OdpowiednieParsowanie(String s1, String s2, String s3)
-    {
-        int dlugosc = s1.length() + s2.length() + s3.length();
-        
-        int dlugoscPrzerwy = (dlugoscWyswietlana-dlugosc)/3;
-        
-        String spacje="";
-        
-        for(int i=0; i < dlugoscPrzerwy;i++)
+    public String WyswietlaneSpacje(String s1)
+    {                       
+        String spacje= new String();               
+             
+        for(int i=0; i < (dlugoscWyswietlana - s1.length());i++)
         {
             spacje+=" ";
         }
         
-        return spacje;        
+      return spacje;          
     }
 }

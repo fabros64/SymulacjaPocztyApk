@@ -54,7 +54,7 @@ public class MainFrame extends javax.swing.JFrame implements KeyListener{
         
         
         
-        Odebrane e1 = new Odebrane("fabros@op.pl", "Praca magisterska", "2019-01-11  07:30",true);
+        Odebrane e1 = new Odebrane("fabrosssssdfhdfhdf@op.pl", "Praca magisterska", "2019-01-11  07:30",true);
         e1.setTresc("Przesyłam pierwszy rozdzial pracy licencjackiej\n"
                 +"Mozna pobrac http://www.dropbox.com/T56fH\n"
                 +"Z poważaniem\n");
