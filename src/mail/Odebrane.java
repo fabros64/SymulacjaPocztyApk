@@ -62,11 +62,9 @@ public class Odebrane extends Funkcjonalnosci {
     }
     
     public String getInfo() 
-    {      
-        String aSpacje = WyswietlaneSpacje(adres);
-        String tSpacje = WyswietlaneSpacje(temat);
-            return adres + aSpacje + temat + tSpacje + data;
+    {              
+            return adres + WyswietlaneSpacje(adres) + temat + WyswietlaneSpacje(temat) + data;
         
-           // String.forma
+           // String.format
     }
 }

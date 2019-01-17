@@ -5,10 +5,13 @@
  */
 package view;
 
+import funkcje.Funkcjonalnosci;
+import funkcje.OperacjeNaPlikach;
 import funkcje.rozmiary;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.IOException;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JList;
@@ -31,9 +34,7 @@ public class MainFrame extends javax.swing.JFrame implements KeyListener{
 
     /**
      * Creates new form MainFrame
-     */
-    
-    
+     */   
     protected listaKontaktow kontakty;
     protected listOdebrane listaOdebranych;
     protected listWyslane listaWyslanych;
@@ -52,11 +53,11 @@ public class MainFrame extends javax.swing.JFrame implements KeyListener{
         button = btnWyswietl;
         isOdebrane = rbOdebrane;
         
+        WczytZczytPliki();
         
-        
-        Odebrane e1 = new Odebrane("fabrosssssdfhdfhdf@op.pl", "Praca magisterska", "2019-01-11  07:30",true);
-        e1.setTresc("Przesyłam pierwszy rozdzial pracy licencjackiej\n"
-                +"Mozna pobrac http://www.dropbox.com/T56fH\n"
+        Odebrane e1 = new Odebrane("fabros@op.pl", "Praca magisterska", "2019-01-11  07:30",true);
+        e1.setTresc("Przesyłam pierwszy rozdzial pracy magisterskiej\n"
+                +"\n"
                 +"Z poważaniem\n");
         Odebrane e2 = new Odebrane("Marcel@op.pl", "Zaległości", "2018-09-15  11:12", false);
         e2.setTresc("W piatek sie widzimy na zajeciach\n\n"
@@ -495,6 +496,13 @@ public class MainFrame extends javax.swing.JFrame implements KeyListener{
         setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    public void WczytZczytPliki()
+    {
+              Funkcjonalnosci func = new Funkcjonalnosci();
+              func.TworzeniePlikow();
+              
+    }
+    
     private void Logowanie()
     {
         if((tfLogin.getText().equals("Mariusz@gmail.com")) && (pfHaslo.getText().equals("Qwerty123"))) 
@@ -520,7 +528,7 @@ public class MainFrame extends javax.swing.JFrame implements KeyListener{
             POP3.setText("POP3:  pop.pocztastudenta.com ");
             SMTP.setText("SMTP:  smtp.pocztastudenta.com ");
                         
-        
+            
         }
         else
         {

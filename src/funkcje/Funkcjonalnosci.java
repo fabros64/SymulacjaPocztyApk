@@ -5,17 +5,19 @@
  */
 package funkcje;
 
+import java.io.IOException;
+
 /**
  *
  * @author Michał
  */
 public class Funkcjonalnosci {
     
-    final int dlugoscWyswietlana = 48;
+    final int dlugoscWyswietlana = 40;
     
     public String WyswietlaneSpacje(String s1)
     {                       
-        String spacje= new String();               
+        String spacje= "";               
              
         for(int i=0; i < (dlugoscWyswietlana - s1.length());i++)
         {
@@ -23,5 +25,15 @@ public class Funkcjonalnosci {
         }
         
       return spacje;          
+    }
+    
+    public void TworzeniePlikow()
+    {
+                OperacjeNaPlikach onp = null;
+        try {
+    onp = new OperacjeNaPlikach();
+}catch(IOException e) {
+        
+    }
     }
 }

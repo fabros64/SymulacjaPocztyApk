@@ -5,11 +5,13 @@
  */
 package mail;
 
+import funkcje.Funkcjonalnosci;
+
 /**
  *
  * @author Michał
  */
-public class Wyslane {
+public class Wyslane extends Funkcjonalnosci{
     protected String adres;
     protected String temat;
     protected String data;
@@ -74,7 +76,7 @@ public class Wyslane {
     public String getInfo() 
     {
        
-            return adres + " " + temat + " " + data;
+            return adres + WyswietlaneSpacje(adres) + temat + WyswietlaneSpacje(temat) + data;
     }
 
     public Boolean getZalacznik() {

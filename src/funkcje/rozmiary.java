@@ -5,6 +5,7 @@
  */
 package funkcje;
 
+import java.io.IOException;
 import view.MainFrame;
 
 /**
