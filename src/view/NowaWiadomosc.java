@@ -6,13 +6,17 @@
 package view;
 
 
+import funkcje.OperacjeNaPlikach;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import javax.swing.DefaultListModel;
 import mail.Kontakt;
@@ -253,6 +257,14 @@ public class NowaWiadomosc extends javax.swing.JFrame {
                 }      
                 lEmaile.setModel(lm);
             }
+            
+            try {
+                OperacjeNaPlikach onp = new OperacjeNaPlikach();
+                onp.ZapisWyslanychDoPliku(listaWyslanych);
+            } catch (IOException ex) {
+                Logger.getLogger(NowaWiadomosc.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                                 
             this.dispose();
         }
     }//GEN-LAST:event_jButton1ActionPerformed

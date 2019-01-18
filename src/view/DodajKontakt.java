@@ -5,7 +5,11 @@
  */
 package view;
 
+import funkcje.OperacjeNaPlikach;
 import java.awt.Color;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -357,6 +361,12 @@ public class DodajKontakt extends javax.swing.JFrame {
     model.add(i,nowyKontakt.getInfo());
     lista2.setModel(model);  
     //lista2.setForeground(Color.green);
+            try {
+                OperacjeNaPlikach onp = new OperacjeNaPlikach();
+                onp.ZapisKontaktowDoPliku(listaK2);
+            } catch (IOException ex) {
+                Logger.getLogger(DodajKontakt.class.getName()).log(Level.SEVERE, null, ex);
+            }
     
     dispose();
         }

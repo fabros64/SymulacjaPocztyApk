@@ -12,7 +12,7 @@ import mail.listaKontaktow;
 
 /**
  *
- * @author CrossbyLite
+ * @author 
  */
 public class Kontakty extends javax.swing.JFrame {
 

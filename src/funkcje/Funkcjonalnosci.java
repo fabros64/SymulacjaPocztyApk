@@ -14,6 +14,7 @@ import java.io.IOException;
 public class Funkcjonalnosci {
     
     final int dlugoscWyswietlana = 40;
+    OperacjeNaPlikach onp = null;
     
     public String WyswietlaneSpacje(String s1)
     {                       
@@ -28,12 +29,13 @@ public class Funkcjonalnosci {
     }
     
     public void TworzeniePlikow()
-    {
-                OperacjeNaPlikach onp = null;
+    {               
         try {
     onp = new OperacjeNaPlikach();
 }catch(IOException e) {
         
     }
     }
+    
+    
 }

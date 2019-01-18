@@ -12,6 +12,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JList;
@@ -38,6 +40,7 @@ public class MainFrame extends javax.swing.JFrame implements KeyListener{
     protected listaKontaktow kontakty;
     protected listOdebrane listaOdebranych;
     protected listWyslane listaWyslanych;
+    protected OperacjeNaPlikach onp;
     
     protected JButton button;
     protected JRadioButton isOdebrane;
@@ -76,6 +79,7 @@ public class MainFrame extends javax.swing.JFrame implements KeyListener{
         listaOdebranych.dodajEmail(e2);
         listaOdebranych.dodajEmail(e3);
         listaOdebranych.dodajEmail(e4);
+        
         
         
         Wyslane w1 = new Wyslane("ktos@gmail.com          ", "Kupno myszki komputerowej                                     ", "2017-03-24  10:23",false);
@@ -194,6 +198,11 @@ public class MainFrame extends javax.swing.JFrame implements KeyListener{
         jScrollPane4.setViewportView(jTextArea2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
         addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 formKeyPressed(evt);
@@ -501,6 +510,14 @@ public class MainFrame extends javax.swing.JFrame implements KeyListener{
               Funkcjonalnosci func = new Funkcjonalnosci();
               func.TworzeniePlikow();
               
+       try {
+            onp = new OperacjeNaPlikach();
+            // listaOdebranych = onp.WczytajOdebraneZPliku();
+        } catch (IOException ex) {
+            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+              
+        
     }
     
     private void Logowanie()
@@ -639,6 +656,11 @@ public class MainFrame extends javax.swing.JFrame implements KeyListener{
                 Logowanie();
             }
     }//GEN-LAST:event_pfHasloKeyPressed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        
+        onp.ZapisOdebranychDoPliku(listaOdebranych);
+    }//GEN-LAST:event_formWindowClosing
 
     private void AktualizujListeWiadomosci()
     {
